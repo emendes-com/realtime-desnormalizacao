@@ -1,0 +1,22 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "desnormalizacao": {
+      "cidades": {
+        ".indexOn": "cidade"
+      },
+      "chave_estado_cidade": {
+        "$estado": {
+          ".indexOn": "cidade"
+        }
+      },
+      "estado_cidade": {
+        ".indexOn": "cidade"
+      },
+      "cidade_estado": {
+        ".indexOn": "cidade"
+      }
+    }
+  }
+}

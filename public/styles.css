@@ -1,0 +1,55 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+ 
+.buttons-scripts button {
+  margin: 3px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border-width: 0px;
+}
+
+.container {
+  height: 80% !important;
+}
+
+#nav-cidades-tab,
+#nav-estado_cidade-tab,
+#nav-cidade_estado-tab,
+#nav-chave_estado_cidade-tab {
+  display: none;
+}
+
+form input {
+  margin: 2px;
+}
+
+form select {
+  margin: 2px;
+}
+
+form button {
+  margin: 2px;
+}
+
+.w-33-100 {
+  width: 32%;
+}
+
+@media (max-width:767.98px) {
+
+  .w-33-100 {
+    width: 100%;
+  }
+
+  .tipo-pesquisa {
+    margin: 10px;
+  }
+}

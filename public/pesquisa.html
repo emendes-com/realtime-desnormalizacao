@@ -1,0 +1,172 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script defer src="/__/firebase/6.1.0/firebase-app.js"></script>
+  <script defer src="/__/firebase/6.1.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="container ">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-cidades-tab" data-form="cidade" data-toggle="tab" href="#nav-cidade"
+          role="tab" aria-controls="nav-cidade" aria-selected="true">Cidade</a>
+        <a class="nav-item nav-link" id="nav-cidade_estado-tab" data-toggle="tab" data-form="cidade-estado"
+          href="#nav-cidade-estado" role="tab" aria-controls="nav-cidade-estado" aria-selected="false">Cidade estado</a>
+        <a class="nav-item nav-link" id="nav-estado_cidade-tab" data-toggle="tab" data-form="estado-cidade"
+          href="#nav-estado-cidade" role="tab" aria-controls="nav-estado-cidade" aria-selected="false">Estado cidade</a>
+        <a class="nav-item nav-link" id="nav-chave_estado_cidade-tab" data-toggle="tab" data-form="chave-estado-cidade"
+          href="#nav-chave" role="tab" aria-controls="nav-chave_estado_cidade" aria-selected="false">Chave estado
+          cidade</a>
+      </div>
+    </nav>
+    <div class="tab-content m-2" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-cidade" role="tabpanel" aria-labelledby="nav-cidades-tab">
+        <section id="pesquisa-cidade">
+          <h4>Pesquisar por cidades</h4>
+          <form class="w-100" name="cidade">
+            <div class="d-flex w-100 flex-wrap justify-content-start ">
+              <input type="text" name="cidade" class="form-control w-33-100" id="cidade" placeholder="cidade" />
+              <input type="text" name="cidade-end" class="form-control w-33-100" id="text-cidade-end" disabled
+                placeholder="cidade final" />
+              <div class="d-flex flex-nowrap justify-content-start ml-3 w-33-100 tipo-pesquisa ">
+                <div class="form-check form-check-inline ">
+                  <input checked class="form-check-input" type="radio" name="tipo-pesquisa" id="tipo-pesquisa-equal"
+                    value="equal" />
+                  <label class="form-check-label  " for="tipo-pesquisa-equal">equalTo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo-pesquisa" id="tipo-pesquisa-start"
+                    value="start" />
+                  <label class="form-check-label " for="tipo-pesquisa-start">startAt</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="tipo-pesquisa" id="tipo-pesquisa-end"
+                    value="end" />
+                  <label class="form-check-label " for="tipo-pesquisa-end">endAt</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group  w-100 d-flex justify-content-start  flex-wrap">
+              <div class="w-33-100 d-flex  ml-1 flex-nowrap align-items-center ">
+                <label class=" ml-1 mt-2 " for="total ">Total</label>
+                <input type="number" name="total" value="20" class="form-control ml-2" id="ext-cidade-total"
+                  placeholder="total" />
+              </div>
+              <button type="button" name="pesquisar" data-pesquisa="cidade" data-lista="#ul-cidades" ari
+                id="button-cidades" class="btn btn-dark w-33-100 ">
+                Pesquisar
+              </button>
+            </div>
+          </form>
+          <ul id="ul-cidades" class="list-group">
+            <li class="list-group-item">Resultado</li>
+          </ul>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="nav-cidade-estado" role="tabpanel" aria-labelledby="nav-chave_estado-cidade">
+        <section id="pesquisa-cidade-estado">
+          <h4>Pesquisar por cidades e estados</h4>
+          <form class="w-100  " name="cidade-estado">
+            <div class="d-flex w-100 flex-wrap justify-content-start ">
+              <input type="text" name="cidade" class="form-control  w-33-100 " id="text-cidade-estado"
+                placeholder="cidade" />
+              <input type="text" name="cidade-end" class="form-control  w-33-100 " id="text-cidade-estado-end"
+                placeholder="cidade final" />
+              <select name="estados" id="select-cidade-estado" class="form-control  w-33-100">
+                <option value="" selected disabled>Selecione...</option>
+              </select>
+            </div>
+            <div class="form-group  w-100 d-flex justify-content-start flex-wrap">
+              <div class="w-33-100 d-flex  ml-1 flex-nowrap align-items-center ">
+                <label class=" ml-1 mt-2 " for="total ">Total</label>
+                <input type="number" name="total" value="20" class="form-control ml-2" id="text-cidade-estado-total"
+                  placeholder="total" />
+              </div>
+              <button type="button" name="pesquisar" data-pesquisa="cidade-estado" data-lista="#ul-cidade-estado"
+                id="button-cidade-estado" class="btn btn-dark btn-sm w-33-100 ">
+                Pesquisar
+              </button>
+            </div>
+          </form>
+          <ul id="ul-cidade-estado" class="list-group"></ul>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="nav-estado-cidade" role="tabpanel" aria-labelledby="nav-estado_cidade-tab">
+        <section id="pesquisa-estado-cidade">
+          <h4>Pesquisar por estado e cidade</h4>
+          <form class=" w-100" name="estado-cidade">
+            <div class="d-flex w-100 flex-wrap justify-content-start ">
+              <select name="estados" id="select-estado-cidade" class="form-control w-33-100 ">
+                <option value="" selected disabled>Selecione...</option>
+              </select>
+              <input type="text" name="cidade" class="form-control w-33-100" id="text-estado-cidade"
+                placeholder="cidade" />
+              <input type="text" name="cidade-end" class="form-control w-33-100" id="text-estado-cidade-end"
+                placeholder="cidade final" />
+            </div>
+            <div class="d-flex w-100 flex-wrap justify-content-start  ">
+              <div class="w-33-100 d-flex  ml-1 flex-nowrap align-items-center ">
+                <label class=" ml-1 mt-2 " for="total ">Total</label>
+                <input type="number" name="total" value="20" class="form-control ml-2" id="text-estado-cidade-total"
+                  placeholder="total(20)" />
+              </div>
+              <button id="button-estado-cidade" name="pesquisar" data-pesquisa="estado-cidade"
+                data-lista="#ul-estado-cidade" type="button" class="btn btn-dark  w-33-100 ">
+                Pesquisar
+              </button>
+            </div>
+          </form>
+          <ul id="ul-estado-cidade" class="list-group"></ul>
+        </section>
+      </div>
+      <div class="tab-pane fade" id="nav-chave" role="tabpanel" aria-labelledby="nav-chave_estado_cidade-tab">
+        <section id="pesquisa-cidade-estado">
+          <h4>Pesquisar por Chave de estado e cidade</h4>
+          <form class=" w-100 d-flex flex-wrap justify-content-around " name="chave-estado-cidade">
+            <div class="d-flex w-100 flex-wrap justify-content-start ">
+              <select name="estados" id="select-chave-estado-cidade" class="form-control w-33-100 ">
+                <option value="" selected disabled>Selecione...</option>
+              </select>
+              <input type="text" name="cidade" class="form-control w-33-100" id="text-chave-estado-cidade"
+                placeholder="cidade" />
+              <input type="text" name="cidade-end" class="form-control w-33-100" id="text-chave-estado-cidade-end"
+                placeholder="cidade final" />
+            </div>
+            <div class="d-flex w-100 flex-wrap justify-content-start ">
+              <div class="w-33-100 d-flex  ml-1 flex-nowrap align-items-center ">
+                <label class=" ml-1 mt-2 " for="total ">Total</label>
+                <input type="number" name="total"  value="20"  class="form-control ml-2 "
+                  id="text-chave-estado-cidade-total" placeholder="total" />
+              </div>
+              <button id="button-chave-estado-cidade" name="pesquisar" data-pesquisa="chave-estado-cidade"
+                data-lista="#ul-chave-estado-cidade" type="button" class="btn btn-dark w-33-100 ">
+                Pesquisar
+              </button>
+            </div>
+          </form>
+          <ul id="ul-chave-estado-cidade" class="list-group"></ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+<script>
+  const titulo = "Pesquisas";
+</script>
+<script src="/scripts/layout.js"></script>
+<script src="/scripts/pesquisa.js"></script>

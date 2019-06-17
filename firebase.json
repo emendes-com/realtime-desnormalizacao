@@ -1,0 +1,35 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/pesquisa",
+        "destination": "/pesquisa.html"
+      },
+      {
+        "source": "/sql",
+        "destination": "/sql.html"
+      },
+      {
+        "source": "/jsonfile",
+        "destination": "/assets/estados-cidades.json"
+      },
+      {
+        "source": "/json",
+        "destination": "/json.html"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  },
+  "database": {
+    "rules": "database.rules.json"
+  }
+}
