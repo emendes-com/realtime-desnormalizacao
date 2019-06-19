@@ -1,21 +1,6 @@
-const nav = `
-<nav class="navbar navbar-light bg-dark text-light mb-4">
-  <a class="navbar-brand text-light" href="#">
-    <img src="/assets/imagens/logoevelyn.svg" width="30" height="30" class="d-inline-block align-top" alt=""/>
-    ${titulo}
-  </a>
-  <span class="my-2">
-    <a class="btn btn-outline-light  btn-sm" href="/" role="button">Scripts</a>
-    <a class="btn btn-outline-light  btn-sm" href="/pesquisa" role="button">Pesquisas</a >
-    <a class="btn btn-outline-light  btn-sm" href="/sql" role="button">SQL</a>
-    <a class="btn btn-outline-light  btn-sm" href="/json" role="button">JSON</a>
+$("header").load("templates/navbar.template.html", () => $(".navbar-brand").append(titulo));
 
-  </span>
-  </nav>`;
-
- 
-$("body").prepend(nav);
-const items = ` <option value="AC">Acre</option>
+const items = `<option value="AC">Acre</option>
 <option value="AL">Alagoas</option>
 <option value="AP">Amapá</option>
 <option value="AM">Amazonas</option>
