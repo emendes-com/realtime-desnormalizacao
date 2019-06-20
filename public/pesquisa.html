@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <header></header>
+  <app-nav titulo="Pesquisas"></app-nav>
   <div class="container ">
     <nav>
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -88,9 +88,11 @@
                 placeholder="cidade" />
               <input type="text" name="cidade-end" class="form-control  w-33-100 " id="text-cidade-estado-end"
                 placeholder="cidade final" />
-              <select name="estados" id="select-cidade-estado" class="form-control  w-33-100">
+                <app-select-estados id="cidade-estado"></app-select-estados>
+
+              <!-- <select name="estados" id="select-cidade-estado" class="form-control  w-33-100">
                 <option value="" selected disabled>Selecione...</option>
-              </select>
+              </select> -->
             </div>
             <div class="form-group  w-100 d-flex justify-content-start flex-wrap">
               <div class="w-33-100 d-flex  ml-1 flex-nowrap align-items-center ">
@@ -112,9 +114,10 @@
           <h4>Pesquisar por estado e cidade</h4>
           <form class=" w-100" name="estado-cidade">
             <div class="d-flex w-100 flex-wrap justify-content-start ">
-              <select name="estados" id="select-estado-cidade" class="form-control w-33-100 ">
+              <app-select-estados id="estado-cidade"></app-select-estados>
+              <!-- <select name="estados" id="select-estado-cidade" class="form-control w-33-100 ">
                 <option value="" selected disabled>Selecione...</option>
-              </select>
+              </select> -->
               <input type="text" name="cidade" class="form-control w-33-100" id="text-estado-cidade"
                 placeholder="cidade" />
               <input type="text" name="cidade-end" class="form-control w-33-100" id="text-estado-cidade-end"
@@ -140,8 +143,10 @@
           <h4>Pesquisar por Chave de estado e cidade</h4>
           <form class=" w-100 d-flex flex-wrap justify-content-around " name="chave-estado-cidade">
             <div class="d-flex w-100 flex-wrap justify-content-start ">
-              <select name="estados" id="select-chave-estado-cidade" class="form-control w-33-100 ">
-                <option value="" selected disabled>Selecione...</option>
+                <app-select-estados  id="chave-estado-cidade"></app-select-estados>
+
+              <!-- <select name="estados" id="select-chave-estado-cidade" class="form-control w-33-100 ">
+                <option value="" selected disabled>Selecione...</option> -->
               </select>
               <input type="text" name="cidade" class="form-control w-33-100" id="text-chave-estado-cidade"
                 placeholder="cidade" />
@@ -168,8 +173,6 @@
 </body>
 
 </html>
-<script>
-  const titulo = "Pesquisas";
-</script>
-<script src="/scripts/layout.js"></script>
 <script src="/scripts/pesquisa.js"></script>
+<script src="scripts/components/nav.component.js"></script>
+<script src="scripts/components/select-estados.component.js"></script>

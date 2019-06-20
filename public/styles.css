@@ -5,7 +5,7 @@ body {
   width: 100%;
   height: 100%;
 }
- 
+
 .buttons-scripts button {
   margin: 3px;
 }
@@ -39,6 +39,11 @@ form button {
   margin: 2px;
 }
 
+app-select-estados {
+  margin-left: 2px;
+  margin-right: 2px
+}
+
 .w-33-100 {
   width: 32%;
 }
@@ -48,6 +53,12 @@ form button {
   .w-33-100 {
     width: 100%;
   }
+
+  app-select-estados {
+    margin-left: 0px;
+    margin-right: 0px
+  }
+
 
   .tipo-pesquisa {
     margin: 10px;

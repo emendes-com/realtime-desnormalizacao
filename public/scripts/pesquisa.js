@@ -13,12 +13,12 @@ const pathChaveEstadoCidade = root + "chave_estado_cidade";
 const orderChild = "cidade";
 const seletorCidade = `input[name="cidade"]`;
 const seletorCidadeEnd = "input[name='cidade-end']";
-const seletorEstado = "select[name=estados]";
+const seletorEstado = "app-select-estados select";
 const seletorTipoPesquisa = "input[name=tipo-pesquisa]";
 const seletorPesquisar = "button[name='pesquisar']";
 const seletorTotal = "input[name=total]";
 const seletorNavTabA = "#nav-tab a";
-
+ 
 $(document).ready(() => {
   firebaseInit();
   inicializarNavTabClickEvents();
@@ -60,7 +60,6 @@ $(seletorCidade).change(event => {
 });
 
 $(seletorCidadeEnd).change(event => (cidadeEnd = event.target.value));
-$(seletorEstado).change(event => (estado = event.target.value));
 $(seletorTipoPesquisa).change(event => definirTipoPesquisa(event.target.value));
 $(seletorTotal).change(event => definirTotal(event.target.value));
 $(seletorPesquisar).click(event => {
